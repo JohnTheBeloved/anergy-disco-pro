@@ -9,7 +9,6 @@ import TimeStampPlugin, {
 import { IUser } from './User';
 
 export interface IClient extends IUser, ITimeStampedDocument {
- uuid: string;
  firstname: string;
  lastname: string;
  username: string;
@@ -20,7 +19,6 @@ export interface IClient extends IUser, ITimeStampedDocument {
 interface IClientModel extends Model<IClient> { }
 
 const schema = new Schema<IClient>({
- uuid: { type: String, index: true, required: true },
  firstname: { type: String, required: true },
  lastname: { type: String, required: true },
  username: { type: String, index: true, required: true },

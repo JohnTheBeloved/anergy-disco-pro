@@ -8,7 +8,6 @@ import TimeStampPlugin, {
 import { Role } from './Employee';
 
 export interface IMessageCategory extends ITimeStampedDocument {
- uuid: string;
  content: string;
  medium: string;
  lastname: string;
@@ -17,7 +16,6 @@ export interface IMessageCategory extends ITimeStampedDocument {
 interface IMessageCategoryModel extends Model<IMessageCategory> { }
 
 const schema = new Schema<IMessageCategory>({
- uuid: { type: String, index: true, required: true },
  firstname: { type: String, index: true, required: true },
  lastname: { type: String, enum: Object.values(Role), index: true, required: true }
 });

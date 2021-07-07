@@ -7,14 +7,12 @@ import TimeStampPlugin, {
 } from './common/timestamp';
 
 export interface IProductCategory extends ITimeStampedDocument {
- uuid: string;
  name: string;
 }
 
 interface IProductCategoryModel extends Model<IProductCategory> { }
 
 const schema = new Schema<IProductCategory>({
- uuid: { type: String, index: true, required: true },
  name: { type: String, index: true, required: true }
 });
 

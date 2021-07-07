@@ -14,7 +14,6 @@ export enum Role {
 }
 
 export interface IEmployee extends IUser, ITimeStampedDocument {
- uuid: string
  firstname: string;
  lastname: string;
  username: string;
@@ -25,7 +24,6 @@ export interface IEmployee extends IUser, ITimeStampedDocument {
 interface IEmployeeModel extends Model<IEmployee> { }
 
 const schema = new Schema<IEmployee>({
- uuid: { type: String, index: true, required: true },
  firstname: { type: String, index: true, required: true },
  lastname: { type: String, index: true, required: true },
  username: { type: String, index: true, required: true },
