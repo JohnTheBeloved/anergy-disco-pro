@@ -7,12 +7,14 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev-server": "NODE_ENV=development nodemon"
+    "dev-server": "NODE_ENV=development nodemon",
+    "ts-node-server": "ts-node src/server.ts"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.13.2",
     "swagger-ui-express": "^4.1.6"
