@@ -158,17 +158,59 @@ Database instance
 
 ## Testing the API
 
-1. Testing the SUPERVISOR role
+1. Testing the **SUPERVISOR** role
   - Create a employee with **SUPERVISOR** role
+  ```
+  {
+      "firstname": "First",
+      "lastname": "Employee",
+      "username": "first.employee",
+      "password": "password",
+      "role": "SUPERVISOR"
+  }
+  ```
   - Sign in with the supervisor login credentials and save the JWT token returned, use the token as a Bearer authentication header to call the following APIs 
-  - Create a Product Category 
+  ```
+  {
+    "username": "first.employee",
+    "password": "password"
+  }
+  ```
+  - Create a Product Category
+  ```
+
+  ```
   - Create 3 Products
   - Create 3 Clients
+  ```
+  {
+    "firstname": "First",
+    "lastname": "Client",
+    "username": "first.client",
+    "password": "password",
+    "role": "CLIENT"
+  }
+  ```
   - Create a message
+  ```
+  {
+    "content": "Rechargeable fans are now available ",
+    "medium": "SMS"
+  }
+  ```
   - Broadcast a message to clients
 
 2. Testing the **EMPLOYEE** role
   - Create a new employee with the **EMPLOYEE** role
+  ```
+   {
+       "firstname": "Second",
+       "lastname": "Employee",
+       "username": "second.employee",
+       "password": "password",
+       "role": "EMPLOYEE"
+   }
+  ```
   - Read all the Product Categories
   - Read all the Products
   - Try deleting a Product category or product (should be unauthorized)

@@ -1,5 +1,6 @@
 const ModelNames: any = {
   AUTH: 'Auth',
+  BROADCAST: 'Broadcast',
   CLIENT: 'Client',
   EMPLOYEE: 'Employee',
   MESSAGE: 'Message',

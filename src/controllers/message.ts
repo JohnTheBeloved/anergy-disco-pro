@@ -11,17 +11,18 @@ export const createMessageSchema = Joi.object().keys({
 
 interface MessageBody {
  content: string;
- clientId: string
+ medium: string
 }
 
 // CRUD
 const create: RequestHandler = async (req: Request<{}, {}, MessageBody>, res) => {
-  const { content, clientId } = req.body;
+  const { content, medium } = req.body;
 
-  const message = new Message({ content, clientId });
+  const message = new Message({ content, medium });
   try {
     await message.save();
     res.send({
+      successful: true,
       message: 'Saved',
       response: message.toJSON()
     });
@@ -40,9 +41,9 @@ const update: RequestHandler = async (req: Request<{}, {}, MessageBody>, res) =>
   const messageId = '';
   const existingMessage = Message.findById(messageId);
   if (existingMessage) {
-    const { content, clientId } = req.body;
+    const { content, medium } = req.body;
 
-    const message = new Message({ content, clientId });
+    const message = new Message({ content, medium });
     try {
       await message.save();
       res.send({
@@ -65,8 +66,6 @@ const deleteOne: RequestHandler = async (req, res) => {
 };
 
 class MessageController {
- broadcast = create;
-
  create = create;
 
  read = requestMiddleware(read);

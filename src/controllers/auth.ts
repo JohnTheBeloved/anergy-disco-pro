@@ -2,7 +2,7 @@ import { Request, RequestHandler } from 'express';
 import jwt from 'jsonwebtoken';
 import expressJwt from 'express-jwt';
 import { StatusCodes } from 'http-status-codes';
-import Auth, { IAuth } from '../models/Auth';
+import Auth from '../models/Auth';
 
 type AuthBody = {
   username: string;
@@ -15,15 +15,15 @@ const authenticate: RequestHandler = async (req: Request<{}, {}, AuthBody>, res)
     const user = await Auth.findOne(auth);
     if (user) {
       const token = jwt.sign({ sub: user._id, role: user.role }, process.env.secret);
-      const { password, ...userWithoutPassword } = user;
       res.send({
-        ...userWithoutPassword,
+        successful: true,
+        message: 'Sign in Successfully',
         token
       });
     }
-    res.status(StatusCodes.BAD_REQUEST).json({ message: 'Username or password is incorrect' });
+    res.status(StatusCodes.BAD_REQUEST).json({ successful: false, error: 'Username or password is incorrect' });
   } catch {
-    res.status(StatusCodes.BAD_REQUEST).json({ message: 'Username or password is incorrect' });
+    res.status(StatusCodes.BAD_REQUEST).json({ successful: false, error: 'Username or password is incorrect' });
   }
 };
 

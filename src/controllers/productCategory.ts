@@ -21,9 +21,9 @@ const create: RequestHandler = async (req: Request<{}, {}, ProductCategoryBody>,
   try {
     await product.save();
     res.send({
-      successful: false,
+      successful: true,
       message: 'Saved',
-      book: product.toJSON()
+      productCategory: product.toJSON()
     });
   } catch (ex) {
     res.status(500).send({ successful: false, error: ex });
@@ -49,7 +49,7 @@ const update: RequestHandler = async (req: Request<{}, {}, ProductCategoryBody>,
       res.send({
         successful: true,
         message: 'Saved',
-        book: product.toJSON()
+        productCategory: product.toJSON()
       });
     } catch (ex) {
       res.status(500).send({ successful: false, error: ex });

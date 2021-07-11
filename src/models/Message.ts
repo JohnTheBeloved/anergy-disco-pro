@@ -8,12 +8,12 @@ import TimeStampPlugin, {
 
 // eslint-disable-next-line no-shadow
 enum MessageMedium {
- SMS = 'SMS'
+ SMS = 'SMS',
+ EMAIL = 'EMAIL'
 };
 export interface IMessage extends ITimeStampedDocument {
  content: string;
  medium: string;
- lastname: string;
 }
 
 interface IMessageModel extends Model<IMessage> { }

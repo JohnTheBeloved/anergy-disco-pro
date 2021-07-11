@@ -23,6 +23,7 @@ const create: RequestHandler = async (req: Request<{}, {}, ProductBody>, res) =>
   try {
     await product.save();
     res.send({
+      successful: true,
       message: 'Saved',
       response: product.toJSON()
     });

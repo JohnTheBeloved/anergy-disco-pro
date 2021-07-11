@@ -1,5 +1,6 @@
 import Joi, { number, string } from '@hapi/joi';
 import { Request, RequestHandler } from 'express';
+import { Auth } from '../models';
 import requestMiddleware from '../middleware/request';
 import Client from '../models/Client';
 
@@ -22,10 +23,13 @@ const create: RequestHandler = async (req: Request<{}, {}, ClientBody>, res) => 
   const {
     firstname, lastname, username, password, role
   } = req.body;
-  const client = new Client({ firstname, lastname, auth: { username, password, role } });
+  const auth = new Auth({ username, password, role });
+  await auth.save();
+  const client = new Client({ firstname, lastname, auth });
   try {
     await client.save();
     res.send({
+      successful: true,
       message: 'Saved',
       response: client.toJSON()
     });

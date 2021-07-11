@@ -28,6 +28,7 @@ const create: RequestHandler = async (req: Request<{}, {}, EmployeeBody>, res) =
   try {
     await employee.save();
     res.send({
+      successful: true,
       message: 'Saved',
       response: employee.toJSON()
     });
