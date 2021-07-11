@@ -16,18 +16,18 @@
  ],
  "tags": [
    {
-     "name": "book",
-     "description": "Books APIs"
+     "name": "employee",
+     "description": "Employee APIs"
    }
  ],
  "paths": {
-   "/book/add": {
+   "/employee/add": {
      "post": {
        "tags": [
-         "book"
+         "employee"
        ],
-       "summary": "Add a book to the database",
-       "operationId": "book-add",
+       "summary": "Add an employee to the database",
+       "operationId": "employee-add",
        "requestBody": {
          "description": "New user signing up",
          "required": true,
@@ -73,13 +73,13 @@
        }
      }
    },
-   "/book/all": {
+   "/employee/all": {
      "get": {
        "tags": [
-         "book"
+         "employee"
        ],
-       "summary": "Get all books in database",
-       "operationId": "book-get-all",
+       "summary": "Get all employees in database",
+       "operationId": "employee-get-all",
        "responses": {
          "200": {
            "description": "Search results",
@@ -87,7 +87,7 @@
              "application/json": {
                "schema": {
                  "properties": {
-                   "books": {
+                   "employees": {
                      "type": "array",
                      "items": {
                        "$ref": "#/components/schemas/BookSchema"
@@ -111,13 +111,13 @@
        }
      }
    },
-   "/book/search": {
+   "/employee/search": {
      "get": {
        "tags": [
-         "book"
+         "employee"
        ],
-       "summary": "Search books by name or author",
-       "operationId": "book-search",
+       "summary": "Search employees by name or author",
+       "operationId": "employee-search",
        "parameters": [
          {
            "in": "query",
@@ -126,7 +126,7 @@
              "type": "string",
              "default": "hitchhiker"
            },
-           "description": "String containing full name or partial name of the book"
+           "description": "String containing full name or partial name of the employee"
          },
          {
            "in": "query",
@@ -145,7 +145,7 @@
              "application/json": {
                "schema": {
                  "properties": {
-                   "books": {
+                   "employees": {
                      "type": "array",
                      "items": {
                        "$ref": "#/components/schemas/BookSchema"
@@ -203,7 +203,7 @@
        "properties": {
          "name": {
            "type": "string",
-           "description": "Name of the book",
+           "description": "Name of the employee",
            "example": "The Hitchhiker's Guide to the Galaxy"
          },
          "author": {

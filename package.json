@@ -9,7 +9,7 @@
     "build": "tsc",
     "dev-server": "NODE_ENV=development nodemon",
     "start_dev": "NODE_ENV=development ts-node src/server.ts",
-    "start": "NODE_ENV=production ts-node src/server.ts"
+    "start": "NODE_ENV=development ts-node src/server.ts"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
