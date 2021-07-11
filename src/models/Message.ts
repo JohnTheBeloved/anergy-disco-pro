@@ -5,24 +5,26 @@ import ModelNames from './common/constants';
 import TimeStampPlugin, {
  ITimeStampedDocument
 } from './common/timestamp';
-import { Role } from './Employee';
 
-export interface IMessageCategory extends ITimeStampedDocument {
+enum MessageMedium {
+ SMS = 'SMS'
+};
+export interface IMessage extends ITimeStampedDocument {
  content: string;
  medium: string;
  lastname: string;
 }
 
-interface IMessageCategoryModel extends Model<IMessageCategory> { }
+interface IMessageModel extends Model<IMessage> { }
 
-const schema = new Schema<IMessageCategory>({
- firstname: { type: String, index: true, required: true },
- lastname: { type: String, enum: Object.values(Role), index: true, required: true }
+const schema = new Schema<IMessage>({
+ content: { type: String, index: true, required: true },
+ medium: { type: String, enum: Object.values(MessageMedium), required: true }
 });
 
 // Add timestamp plugin for createdAt and updatedAt in miliseconds from epoch
 schema.plugin(TimeStampPlugin);
 
-const MessageCategory: IMessageCategoryModel = model<IMessageCategory, IMessageCategoryModel>(ModelNames.CLIENT, schema);
+const Message: IMessageModel = model<IMessage, IMessageModel>(ModelNames.MESSAGE, schema);
 
-export default MessageCategory;
+export default Message;

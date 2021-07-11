@@ -16,9 +16,7 @@ export enum Role {
 export interface IEmployee extends IUser, ITimeStampedDocument {
  firstname: string;
  lastname: string;
- username: string;
- password: string;
- role: string;
+ user: IUser;
 }
 
 interface IEmployeeModel extends Model<IEmployee> { }
@@ -26,9 +24,7 @@ interface IEmployeeModel extends Model<IEmployee> { }
 const schema = new Schema<IEmployee>({
  firstname: { type: String, index: true, required: true },
  lastname: { type: String, index: true, required: true },
- username: { type: String, index: true, required: true },
- password: { type: String, index: true, required: true },
- role: { type: String, enum: Object.values(Role), index: true, required: true }
+ auth: { type: Schema.Types.ObjectId, ref: ModelNames.AUTH, required: true }
 });
 
 // Add timestamp plugin for createdAt and updatedAt in miliseconds from epoch
