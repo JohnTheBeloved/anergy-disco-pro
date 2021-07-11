@@ -2,8 +2,10 @@ import { Router } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import apiSpec from '../../openapi.json';
 
-import productRouter from './product'
-import productCategoryRouter from './productCategory'
+import auth from './auth'
+import employee from './employee'
+import product from './product'
+import productCategory from './productCategory'
 
 const swaggerUiOptions = {
   customCss: '.swagger-ui .topbar { display: none }'
@@ -11,8 +13,10 @@ const swaggerUiOptions = {
 
 const router = Router();
 
-router.use('/products', productRouter)
-router.use('/product-categories', productCategoryRouter)
+router.use('/auth', auth)
+router.use('/employees', employee)
+router.use('/products', product)
+router.use('/product-categories', productCategory)
 
 // Dev routes
 if (process.env.NODE_ENV === 'development') {

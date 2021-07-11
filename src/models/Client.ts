@@ -6,14 +6,12 @@ import { Role } from './Employee';
 import TimeStampPlugin, {
  ITimeStampedDocument
 } from './common/timestamp';
-import { IUser } from './User';
+import { IAuth } from './Auth';
 
-export interface IClient extends IUser, ITimeStampedDocument {
+export interface IClient extends ITimeStampedDocument {
   firstname: string;
   lastname: string;
-  username: string;
-  password: string;
-  role: string;
+  auth: IAuth;
 }
 
 interface IClientModel extends Model<IClient> { }
@@ -21,9 +19,7 @@ interface IClientModel extends Model<IClient> { }
 const schema = new Schema<IClient>({
   firstname: { type: String, required: true },
   lastname: { type: String, required: true },
-  username: { type: String, index: true, required: true },
-  password: { type: String, required: true },
-  role: { type: String, enum: Object.values(Role), required: true }
+  auth: { type: Schema.Types.ObjectId, ref: ModelNames.AUTH, required: true }
 });
 
 // Add timestamp plugin for createdAt and updatedAt in miliseconds from epoch

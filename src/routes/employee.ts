@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { Role } from '../models/Auth';
 import authorize from '../utils/authorize';
-import ClientController from '../controllers/client';
+import EmployeeController from '../controllers/employee';
 
 const handler: Router = Router();
-const controller = new ClientController();
+const controller = new EmployeeController();
 
 handler.post('/', controller.create)
 handler.get('/', controller.read)

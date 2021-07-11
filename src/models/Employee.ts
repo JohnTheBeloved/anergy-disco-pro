@@ -5,18 +5,18 @@ import ModelNames from './common/constants';
 import TimeStampPlugin, {
  ITimeStampedDocument
 } from './common/timestamp';
-import { IUser } from './User';
+import { IAuth } from './Auth';
 
 export enum Role {
- SUPERVISOR = 'SUPERVISOR',
- EMPLOYEE = 'EMPLOYEE',
- CLIENT = 'CLIENT'
+  SUPERVISOR = 'SUPERVISOR',
+  EMPLOYEE = 'EMPLOYEE',
+  CLIENT = 'CLIENT'
 }
 
-export interface IEmployee extends IUser, ITimeStampedDocument {
- firstname: string;
- lastname: string;
- user: IUser;
+export interface IEmployee extends ITimeStampedDocument {
+  firstname: string;
+  lastname: string;
+  auth: IAuth;
 }
 
 interface IEmployeeModel extends Model<IEmployee> { }

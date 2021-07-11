@@ -10,15 +10,18 @@ export const createClientSchema = Joi.object().keys({
 });
 
 interface ClientBody {
- name: string;
- category: ClientBody;
+ firstname: string;
+ lastname: string;
+ username: string;
+ password: string;
+ role: string;
 }
 
 // CRUD
 const create: RequestHandler = async (req: Request<{}, {}, ClientBody>, res) => {
- const { name, category } = req.body;
 
- const client = new Client({ name, category });
+ const { firstname, lastname, username, password, role } = req.body;
+ const client = new Client({ firstname, lastname, auth: { username, password, role }});
  try{
   await client.save();
   res.send({
@@ -41,9 +44,9 @@ const update: RequestHandler = async (req: Request<{}, {}, ClientBody>, res) => 
  const clientId = '';
  const existingClient = Client.findById(clientId);
  if (existingClient) {
-   const { name, category } = req.body;
+   const { firstname, lastname } = req.body;
 
-   const client = new Client({ name, category });
+   const client = new Client({ ...existingClient, firstname, lastname });
    try {
      await client.save();
      res.send({
