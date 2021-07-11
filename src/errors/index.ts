@@ -1,4 +1,4 @@
-
+/* eslint-disable max-classes-per-file */
 class ApplicationError extends Error {
  public message: string = 'ApplicationError';
 
@@ -22,6 +22,6 @@ class BadRequest extends ApplicationError {
 }
 
 export {
- ApplicationError,
- BadRequest,
-}
+  ApplicationError,
+  BadRequest
+};

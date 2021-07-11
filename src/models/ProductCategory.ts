@@ -1,9 +1,9 @@
 import {
- Model, Schema, model
+  Model, Schema, model
 } from 'mongoose';
 import ModelNames from './common/constants';
 import TimeStampPlugin, {
- ITimeStampedDocument
+  ITimeStampedDocument
 } from './common/timestamp';
 
 export interface IProductCategory extends ITimeStampedDocument {
@@ -13,12 +13,13 @@ export interface IProductCategory extends ITimeStampedDocument {
 interface IProductCategoryModel extends Model<IProductCategory> { }
 
 const schema = new Schema<IProductCategory>({
- name: { type: String, index: true, required: true }
+  name: { type: String, index: true, required: true }
 });
 
 // Add timestamp plugin for createdAt and updatedAt in miliseconds from epoch
 schema.plugin(TimeStampPlugin);
 
+// eslint-disable-next-line max-len
 const ProductCategory: IProductCategoryModel = model<IProductCategory, IProductCategoryModel>(ModelNames.PRODUCT_CATEGORY, schema);
 
 export default ProductCategory;

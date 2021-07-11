@@ -1,17 +1,11 @@
 import {
- Model, Schema, model
+  Model, Schema, model
 } from 'mongoose';
 import ModelNames from './common/constants';
 import TimeStampPlugin, {
- ITimeStampedDocument
+  ITimeStampedDocument
 } from './common/timestamp';
 import { IAuth } from './Auth';
-
-export enum Role {
-  SUPERVISOR = 'SUPERVISOR',
-  EMPLOYEE = 'EMPLOYEE',
-  CLIENT = 'CLIENT'
-}
 
 export interface IEmployee extends ITimeStampedDocument {
   firstname: string;
@@ -22,9 +16,9 @@ export interface IEmployee extends ITimeStampedDocument {
 interface IEmployeeModel extends Model<IEmployee> { }
 
 const schema = new Schema<IEmployee>({
- firstname: { type: String, index: true, required: true },
- lastname: { type: String, index: true, required: true },
- auth: { type: Schema.Types.ObjectId, ref: ModelNames.AUTH, required: true }
+  firstname: { type: String, index: true, required: true },
+  lastname: { type: String, index: true, required: true },
+  auth: { type: Schema.Types.ObjectId, ref: ModelNames.AUTH, required: true }
 });
 
 // Add timestamp plugin for createdAt and updatedAt in miliseconds from epoch

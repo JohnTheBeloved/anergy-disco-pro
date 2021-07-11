@@ -1,10 +1,9 @@
 import {
- Model, Schema, model
+  Model, Schema, model
 } from 'mongoose';
 import ModelNames from './common/constants';
-import { Role } from './Employee';
 import TimeStampPlugin, {
- ITimeStampedDocument
+  ITimeStampedDocument
 } from './common/timestamp';
 import { IAuth } from './Auth';
 
