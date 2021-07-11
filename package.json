@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "dev-server": "NODE_ENV=development nodemon",
-    "start_dev": "NODE_ENV=development ts-node src/server.ts"
+    "start_dev": "NODE_ENV=development ts-node src/server.ts",
+    "start": "NODE_ENV=production ts-node src/server.ts"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
@@ -41,5 +42,8 @@
     "nodemon": "^2.0.9",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.5"
-  }
+  },
+  "engines": {
+   "node": "14.x"
+ }
 }
