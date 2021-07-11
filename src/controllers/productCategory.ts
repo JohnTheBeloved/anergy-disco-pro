@@ -62,8 +62,8 @@ const update: RequestHandler = async (req: Request<{}, {}, ProductCategoryBody>,
 };
 
 const deleteOne: RequestHandler = async (req, res) => {
- const id = req.query.id;
- const { n, ok } = await ProductCategory.deleteOne({ id });
+ const _id = req.query.id;
+ const { n, ok } = await ProductCategory.deleteOne({ _id });
  res.send({ successful: !!ok,  message:  ok ? `${n} matched products deleted Successfully` : 'No products deleted' });
 };
 
