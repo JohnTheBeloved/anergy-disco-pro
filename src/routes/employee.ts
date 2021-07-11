@@ -6,7 +6,7 @@ import EmployeeController from '../controllers/employee';
 const handler: Router = Router();
 const controller = new EmployeeController();
 
-handler.post('/',authorize(Role.SUPERVISOR), controller.create)
+handler.post('/', controller.create)
 handler.get('/', controller.read)
 handler.get('/:id', controller.read)
 handler.put('/:id',authorize(Role.SUPERVISOR), controller.update)
