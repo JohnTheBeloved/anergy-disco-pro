@@ -35,7 +35,7 @@ END
 ```
 
 ## Deployment
-The Deployed version was deployed on [heroku](https://www.heroku.com) can be viewed on [here](https://peaceful-shore-21573.herokuapp.com) , Please note that heroku free deployed applications go into a sleep mode if not accessed for about 30 minutes and therefore would take some time for the application bootstrap and to load up.
+The Deployed version was deployed on [heroku](https://www.heroku.com) can be viewed on [here](https://boiling-oasis-62775.herokuapp.com) , Please note that heroku free deployed applications go into a sleep mode if not accessed for about 30 minutes and therefore would take some time for the application bootstrap and to load up.
 
 ## Development Framework 
 The language used was Express framework, Other libraries include
@@ -43,15 +43,11 @@ The language used was Express framework, Other libraries include
 - joi for API validation
 - Database is mongodb (Make sure you have mongodb installed)
 
--------------------------
-## Project creation
--------------------------
 
--------------------------
 Development Requirements / Tools
 -------------------------
 
-Make sure you install [npm] node package manager on your system, this can be installed on your system based on your operating system
+Make sure you install [npm] node package manager on your system, this can be installed based on your operating system
 
 ### NPM/Node 
 
@@ -141,12 +137,16 @@ After running this command, your project is found in the `build` folder under th
 
 ```
 $ heroku create
-$ git push heroku master
+$ git push heroku main
 $ heroku open
 ```
 or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+Database instance 
+
+[MongoDB Atlas](https://cloud.mongodb.com/v2/60eb2b5282912e506776d635#clusters/connect?clusterId=Cluster0)
 
 
 ## API services
