@@ -40,6 +40,7 @@ const read: RequestHandler = async (req, res) => {
  res.send({successful: true, employees });
 };
 
+// TODO: Other roles can only update self
 const update: RequestHandler = async (req: Request<{}, {}, EmployeeBody>, res) => {
 
  const employeeId = '';
@@ -65,6 +66,7 @@ const update: RequestHandler = async (req: Request<{}, {}, EmployeeBody>, res) =
 
 };
 
+//TODO: Implement Employee cannot delete self
 const deleteOne: RequestHandler = async (req, res) => {
  const _id = req.query.id;
  const { n, ok } = await Employee.deleteOne({ _id });

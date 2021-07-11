@@ -6,11 +6,11 @@ import EmployeeController from '../controllers/employee';
 const handler: Router = Router();
 const controller = new EmployeeController();
 
-handler.post('/', controller.create)
+handler.post('/',authorize(Role.SUPERVISOR), controller.create)
 handler.get('/', controller.read)
 handler.get('/:id', controller.read)
-handler.put('/:id', controller.update)
-handler.delete('/:id', authorize(Role.ADMIN), controller.delete)
+handler.put('/:id',authorize(Role.SUPERVISOR), controller.update)
+handler.delete('/:id', authorize(Role.SUPERVISOR), controller.delete)
 
 
 export default handler;

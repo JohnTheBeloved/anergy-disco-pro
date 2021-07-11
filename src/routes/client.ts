@@ -6,11 +6,11 @@ import ClientController from '../controllers/client';
 const handler: Router = Router();
 const controller = new ClientController();
 
-handler.post('/', controller.create)
-handler.get('/', controller.read)
-handler.get('/:id', controller.read)
-handler.put('/:id', controller.update)
-handler.delete('/:id', authorize(Role.ADMIN), controller.delete)
+handler.post('/',authorize(Role.SUPERVISOR), controller.create)
+handler.get('/',authorize(Role.SUPERVISOR), controller.read)
+handler.get('/:id',authorize(Role.SUPERVISOR), controller.read)
+handler.put('/:id',authorize(Role.SUPERVISOR), controller.update)
+handler.delete('/:id',authorize(Role.SUPERVISOR), authorize(Role.ADMIN), controller.delete)
 
 
 export default handler;
