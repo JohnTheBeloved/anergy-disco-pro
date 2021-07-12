@@ -178,9 +178,19 @@ Database instance
   ```
   - Create a Product Category
   ```
-
+  {
+    "name": "Rechargeable Fans"
+}
   ```
   - Create 3 Products
+  ```
+  {
+    "name": "Anergy 12' Portable Rechargeable Fan",
+    "category": {
+        "_id": "60eb4dd057faa7e751c0f57a"
+    }
+  }
+  ```
   - Create 3 Clients
   ```
   {
