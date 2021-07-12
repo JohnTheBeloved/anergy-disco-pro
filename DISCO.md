@@ -73,6 +73,7 @@ This software solution will be an enterprise application that will help the coor
 
 ### Application deployment architecture
 
+![image](https://user-images.githubusercontent.com/7778212/125266562-d7335180-e2fd-11eb-98c5-2355e9a3bb27.png)
 
 
 
