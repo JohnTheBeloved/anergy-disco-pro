@@ -35,7 +35,7 @@ END
 ```
 
 ## Deployment
-The Deployed version was deployed on [heroku](https://www.heroku.com) can be viewed on [here](https://boiling-oasis-62775.herokuapp.com) , Please note that heroku free deployed applications go into a sleep mode if not accessed for about 30 minutes and therefore would take some time for the application bootstrap and to load up.
+The Deployed version was deployed on [heroku](https://www.heroku.com) can be viewed on [here](https://anergy-mart-pro.herokuapp.com) , Please note that heroku free deployed applications go into a sleep mode if not accessed for about 30 minutes and therefore would take some time for the application bootstrap and to load up.
 
 ## Development Framework 
 The language used was Express framework, Other libraries include
