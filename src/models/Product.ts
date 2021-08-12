@@ -1,9 +1,9 @@
 import {
- Model, Schema, model
+  Model, Schema, model
 } from 'mongoose';
 import ModelNames from './common/constants';
 import TimeStampPlugin, {
- ITimeStampedDocument
+  ITimeStampedDocument
 } from './common/timestamp';
 
 export interface IProduct extends ITimeStampedDocument {
@@ -14,8 +14,8 @@ export interface IProduct extends ITimeStampedDocument {
 interface IProductModel extends Model<IProduct> { }
 
 const schema = new Schema<IProduct>({
- name: { type: String, index: true, required: true },
- category: { type: Schema.Types.ObjectId, ref: ModelNames.PRODUCT_CATEGORY, required: true }
+  name: { type: String, index: true, required: true },
+  category: { type: Schema.Types.ObjectId, ref: ModelNames.PRODUCT_CATEGORY, required: true }
 });
 
 // Add timestamp plugin for createdAt and updatedAt in miliseconds from epoch

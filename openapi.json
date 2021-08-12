@@ -76,7 +76,8 @@
    "/employee/all": {
      "get": {
        "tags": [
-         "employee"
+        "employee",
+        "employees"
        ],
        "summary": "Get all employees in database",
        "operationId": "employee-get-all",

@@ -6,13 +6,12 @@ import ModelNames from './common/constants';
 import Product from './Product';
 import ProductCategory from './ProductCategory';
 
-
 export {
- Auth,
- Client,
- Employee,
- Message,
- ModelNames,
- Product,
- ProductCategory,
-}
+  Auth,
+  Client,
+  Employee,
+  Message,
+  ModelNames,
+  Product,
+  ProductCategory
+};

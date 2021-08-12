@@ -35,7 +35,7 @@ END
 ```
 
 ## Deployment
-The Deployed version was deployed on [heroku](https://www.heroku.com) can be viewed on [here](https://peaceful-shore-21573.herokuapp.com) , Please note that heroku free deployed applications go into a sleep mode if not accessed for about 30 minutes and therefore would take some time for the application bootstrap and to load up.
+The Deployed version was deployed on [heroku](https://www.heroku.com) can be viewed on [here](https://anergy-mart-pro.herokuapp.com) , Please note that heroku free deployed applications go into a sleep mode if not accessed for about 30 minutes and therefore would take some time for the application bootstrap and to load up.
 
 ## Development Framework 
 The language used was Express framework, Other libraries include
@@ -43,15 +43,11 @@ The language used was Express framework, Other libraries include
 - joi for API validation
 - Database is mongodb (Make sure you have mongodb installed)
 
--------------------------
-## Project creation
--------------------------
 
--------------------------
 Development Requirements / Tools
 -------------------------
 
-Make sure you install [npm] node package manager on your system, this can be installed on your system based on your operating system
+Make sure you install [npm] node package manager on your system, this can be installed based on your operating system
 
 ### NPM/Node 
 
@@ -141,12 +137,16 @@ After running this command, your project is found in the `build` folder under th
 
 ```
 $ heroku create
-$ git push heroku master
+$ git push heroku main
 $ heroku open
 ```
 or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+Database instance 
+
+[MongoDB Atlas](https://cloud.mongodb.com/v2/60eb2b5282912e506776d635#clusters/connect?clusterId=Cluster0)
 
 
 ## API services
@@ -158,17 +158,69 @@ or
 
 ## Testing the API
 
-1. Testing the SUPERVISOR role
+1. Testing the **SUPERVISOR** role
   - Create a employee with **SUPERVISOR** role
+  ```
+  {
+      "firstname": "First",
+      "lastname": "Employee",
+      "username": "first.employee",
+      "password": "password",
+      "role": "SUPERVISOR"
+  }
+  ```
   - Sign in with the supervisor login credentials and save the JWT token returned, use the token as a Bearer authentication header to call the following APIs 
-  - Create a Product Category 
+  ```
+  {
+    "username": "first.employee",
+    "password": "password"
+  }
+  ```
+  - Create a Product Category
+  ```
+  {
+    "name": "Rechargeable Fans"
+}
+  ```
   - Create 3 Products
+  ```
+  {
+    "name": "Anergy 12' Portable Rechargeable Fan",
+    "category": {
+        "_id": "60eb4dd057faa7e751c0f57a"
+    }
+  }
+  ```
   - Create 3 Clients
+  ```
+  {
+    "firstname": "First",
+    "lastname": "Client",
+    "username": "first.client",
+    "password": "password",
+    "role": "CLIENT"
+  }
+  ```
   - Create a message
+  ```
+  {
+    "content": "Rechargeable fans are now available ",
+    "medium": "SMS"
+  }
+  ```
   - Broadcast a message to clients
 
 2. Testing the **EMPLOYEE** role
   - Create a new employee with the **EMPLOYEE** role
+  ```
+   {
+       "firstname": "Second",
+       "lastname": "Employee",
+       "username": "second.employee",
+       "password": "password",
+       "role": "EMPLOYEE"
+   }
+  ```
   - Read all the Product Categories
   - Read all the Products
   - Try deleting a Product category or product (should be unauthorized)
